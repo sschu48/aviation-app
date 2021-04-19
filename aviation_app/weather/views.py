@@ -1,12 +1,29 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+# Dummy Data
+metars = [
+    {
+        'airport': 'Greeley Weld',
+        'icao': 'KGXY',
+        'wind': '220 12k'
+    },
+    {
+        'airport': 'Fort Collins',
+        'icao': 'KFNL',
+        'wind': '270 5k'
+    }
+]
+
 # Create your views here.
 def home(request):
-    return(HttpResponse('<h1>Weather Home</h1>'))
+    return render(request, 'weather/home.html')
 
 def taf(request):
-    return(HttpResponse('<h1>Weather TAFs</h1>'))
+    return render(request, 'weather/taf.html')
 
 def metar(request):
-    return(HttpResponse('<h1>Weather METARs</h1>'))
+    context = {
+        'metars': metars
+    }
+    return render(request, 'weather/metar.html', context)
