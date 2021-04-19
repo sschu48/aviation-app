@@ -1,0 +1,5 @@
+{
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.pythonPath": "/Users/seanschumacher/Desktop/Creation/aviation-app/venv/bin/python3.9"
+}
