@@ -1,23 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>TAFs</title>
-</head>
-<body>
-    <nav class="navbar">
-        <h1 class="header">TAF Text Data</h1>
-        <div class="nav-form">
-            <p>Enter Data Here: </p>
+{% extends "weather/base.html" %}
+{% block content %}
+        <!-- Main Body -->
+        <div>
+            <h1 class="">{{title}} Text Data</h1>
+            <div class="nav-form">
+                <p>Enter Data Here: </p>
+
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+            <!-- TAF DATA BELOW -->
+            <div>
+                {% for taf in tafs %}
+                    <h1>{{ taf.airport }} -- ICAO: {{ taf.icao }}</h1>
+                    <p>The wind is {{ taf.wind }}</p>
+                {% endfor %}
+                </div>
         </div>
-        <div class="data">
-            {% for taf in tafs %}
-                <h1>{{ taf.airport }} -- ICAO: {{ taf.icao }}</h1>
-                <p>The wind is {{ metar.wind }}</p>
-            {% endfor %}
-        </div>
-    </nav>
-</body>
-</html>
+{% endblock content %}
