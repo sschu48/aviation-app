@@ -17,13 +17,13 @@ metars = [
 
 # Create your views here.
 def home(request):
-    return render(request, 'weather/home.html')
+    return render(request, 'weather/home.html', {'title': 'Weather'})
 
 def taf(request):
-    return render(request, 'weather/taf.html')
+    return render(request, 'weather/taf.html', {'title': 'TAF'})
 
 def metar(request):
     context = {
         'metars': metars
     }
-    return render(request, 'weather/metar.html', context)
+    return render(request, 'weather/metar.html', {'title': 'METAR'})
